@@ -14,7 +14,7 @@ function createGalleryItemsMarkup(gallery) {
     .map(({ preview, original, description }) => {
       return `
         <div class="gallery__item">
-  <a class="gallery__link" href="${preview}">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
       src="${preview}"
@@ -40,4 +40,10 @@ function handleGallegyElClick(e) {
 `);
 
   instance.show();
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      instance.close();
+    }
+  });
 }
